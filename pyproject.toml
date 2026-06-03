@@ -1,0 +1,17 @@
+[project]
+name = "safe-game-speed-tray"
+version = "0.1.0"
+description = "Safe tray/CLI speed multiplier controller for opt-in games and demos"
+requires-python = ">=3.9"
+dependencies = [
+  "psutil>=5.9",
+  "pystray>=0.19; platform_system == 'Windows'",
+  "pillow>=10; platform_system == 'Windows'"
+]
+
+[project.scripts]
+game-speed-tray = "game_speed_tray.__main__:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

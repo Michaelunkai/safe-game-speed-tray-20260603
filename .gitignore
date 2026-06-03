@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Runtime outputs
+speed_state.json
+*.log
+artifacts/*.tmp
+artifacts/*.pid
+
+# Secrets / local config
+.env
+*.key
+*.pem
