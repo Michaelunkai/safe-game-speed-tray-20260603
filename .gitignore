@@ -5,7 +5,9 @@ __pycache__/
 .ruff_cache/
 .mypy_cache/
 .venv/
+.venv-win/
 venv/
+*.bak-*
 build/
 dist/
 *.egg-info/

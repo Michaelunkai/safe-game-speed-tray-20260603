@@ -38,10 +38,18 @@ python -m pip install -e .
 
 ## Usage
 
-Run the tray app:
+Run the tray app from Windows PowerShell 5.1:
 
 ```powershell
-.un-safe-game-speed-tray.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "F:\study\projects\software\windows\desktop\apps\gaming\utilities\time-control\safe-game-speed-tray-20260603\run-safe-game-speed-tray.ps1"
+```
+
+The launcher creates `.venv-win`, installs `pystray`, `pillow`, and `psutil` if missing, then opens the system tray icon. First run can take a minute while dependencies install.
+
+Run from inside the project folder:
+
+```powershell
+.\run-safe-game-speed-tray.ps1
 ```
 
 Set 5x from CLI:
