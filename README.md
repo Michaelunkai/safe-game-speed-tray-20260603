@@ -1,5 +1,7 @@
 # safe-game-speed-tray-20260603
 
+Repository: https://github.com/Michaelunkai/safe-game-speed-tray-20260603
+
 Safe Windows tray/CLI project for experimenting with game speed multipliers in **opt-in** games, demos, and tools that deliberately read a speed-state file.
 
 ## Important safety boundary
