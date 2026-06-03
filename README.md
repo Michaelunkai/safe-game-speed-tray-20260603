@@ -38,6 +38,22 @@ python -m pip install -e .
 
 ## Usage
 
+### Compiled EXE
+
+The compiled tray app is:
+
+```text
+F:\study\projects\software\windows\desktop\apps\gaming\utilities\time-control\safe-game-speed-tray-20260603\dist\SafeGameSpeedTray.exe
+```
+
+Double-click it to immediately start the system tray icon. To rebuild it from source:
+
+```powershell
+.\build_exe.ps1
+```
+
+### PowerShell launcher
+
 Run the tray app from Windows PowerShell 5.1:
 
 ```powershell

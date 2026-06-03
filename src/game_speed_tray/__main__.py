@@ -4,7 +4,10 @@ import argparse
 import sys
 from pathlib import Path
 
-from .speed_policy import default_state_path, read_state, try_set_priority, write_state
+try:
+    from .speed_policy import default_state_path, read_state, try_set_priority, write_state
+except ImportError:  # PyInstaller may execute this file as a top-level script.
+    from game_speed_tray.speed_policy import default_state_path, read_state, try_set_priority, write_state
 
 
 def run_tray(state_path: Path) -> int:
@@ -60,6 +63,8 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--normal", action="store_true")
 
     args = parser.parse_args(argv)
+    if args.cmd is None and getattr(sys, "frozen", False):
+        return run_tray(args.state)
     if args.cmd == "set":
         state = write_state(args.state, args.multiplier)
         print(f"set multiplier={state.multiplier:g}x state={args.state}")
