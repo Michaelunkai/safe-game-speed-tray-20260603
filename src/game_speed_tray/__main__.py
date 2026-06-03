@@ -32,6 +32,10 @@ def run_tray(state_path: Path) -> int:
             icon.title = f"Safe speed: {multiplier:g}x"
         return _inner
 
+    current = read_state(state_path)
+    if not state_path.exists():
+        current = write_state(state_path, current.multiplier)
+
     menu = pystray.Menu(
         pystray.MenuItem("Normal 1x", set_speed(1)),
         pystray.MenuItem("2x (opt-in apps)", set_speed(2)),
@@ -41,8 +45,7 @@ def run_tray(state_path: Path) -> int:
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Quit", lambda icon, item: icon.stop()),
     )
-    write_state(state_path, 1)
-    icon = pystray.Icon("SafeGameSpeedTray", make_icon(), "Safe speed: 1x", menu)
+    icon = pystray.Icon("SafeGameSpeedTray", make_icon(), f"Safe speed: {current.multiplier:g}x", menu)
     icon.run()
     return 0
 
